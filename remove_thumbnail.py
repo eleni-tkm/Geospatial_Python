@@ -41,7 +41,7 @@ def _convert_to_dms(coordinates):
     return ((degrees, 1), (minutes, 1), (int(seconds * 1000), 1000))
 
 # Specify the directory containing the images
-directory_path = r"Z:\Temporary\eleni_data\dasiki_katastrofi_codes_images\6928_1"
+directory_path = r"blah\blah\aDirectiory"
 
 # Specify the GPS coordinates
 latitude = (35, 7, 1.4)  # Example: 35°7'1.4" N
