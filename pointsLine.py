@@ -25,7 +25,7 @@ def create_polygon(points):
     return convex_hull
 
 if __name__ == "__main__":
-    gdf = gpd.read_file('Z:\Temporary\eleni_data\PointstoPoly\pointsToPoly.gdb', layer='Habitats_PolygonToLine_Gener1')
+    gdf = gpd.read_file('blah\blah\pointsToPoly.gdb', layer='Habitats_PolygonToLine_Gener1')
 
     # Find the correct geometry column name
     geometry_column = gdf.geometry.name
