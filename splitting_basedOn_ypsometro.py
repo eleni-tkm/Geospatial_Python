@@ -1,9 +1,9 @@
 import arcpy
 
 # Set your workspace and input/output feature classes
-arcpy.env.workspace = r'\\192.168.1.5\kartECO SHARED\Temporary\eleni_data\TAIPED\data\finals'
-input_polygons = r"\\192.168.1.5\kartECO SHARED\Temporary\eleni_data\TAIPED\data\finals\Notio_phlio.shp"
-contours = r"Z:\Projects\Dimosio\K207 - TAIPED\02_Antipirika_sxedia_SP02\Working_files\Data_Help_Photos\Data\4. Paragomena Stoixeia\temp_files\contours200.shp"
+arcpy.env.workspace = r'where\is\your\database'
+input_polygons = r"blah\blah\a_shapefile.shp"
+contours = r"blah\blah\contours200.shp"
 output_feature_class = 'output_split_polygons.shp'
 
 # Create a list to store split features
