@@ -1,7 +1,7 @@
 import arcpy
 
 # Set the workspace
-workspace = r'\\192.168.1.5\kartECO SHARED\Projects\Dimosio\K207 - TAIPED\02_Antipirika_sxedia_SP02\Working_files\Data_help_photos\Data\4. Paragomena Stoixeia\xartis_pithanotitas\eflektotita\SP02_Veg_MapFinal.gdb'
+workspace = r'blah\Data\blah\aVEGETATIONmap.gdb'
 arcpy.env.workspace = workspace
 
 # Task 1
