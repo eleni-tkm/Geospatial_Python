@@ -1,10 +1,11 @@
+#cREATE CUSTOMe METADATA for YOUR SHAPEFILES
 import os
 import geopandas as gpd
 from pyproj import Transformer
 from lxml import etree
 
 # Define the directory containing the shapefiles
-directory = r'C:\Users\user\Desktop\SAP_FOTOSIMEIA'
+directory = r'blah\blah\whereAreyourShapefiles?'
 
 # Function to create the XML content
 def create_xml_content(shapefile):
@@ -13,7 +14,7 @@ def create_xml_content(shapefile):
     # Read the shapefile using geopandas
     gdf = gpd.read_file(os.path.join(directory, shapefile))
 
-    # If CRS is unknown, set it to EPSG:4326
+    # If CRS is unknown, set it to EPSG:4326, this step is not required it is only for my case
     if gdf.crs is None:
         gdf.set_crs(epsg=2100, inplace=True)
 
