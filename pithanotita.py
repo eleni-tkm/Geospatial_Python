@@ -1,9 +1,9 @@
 import arcpy
  
 # Set the workspace environment
-arcpy.env.workspace = r'\\192.168.1.5\kartECO SHARED\Projects\Dimosio\K207 - TAIPED\02_Antipirika_sxedia_SP02\Working_files\Data_Help_Photos\Data\4. Paragomena Stoixeia\xartis_pithanotitas\eflektotita\SP02_Veg_Map_new_1.gdb'
+arcpy.env.workspace = r'blah\blah\myGDB.gdb'
  
-# Set the name of your feature class
+# the name of the feature class inside the gdb
 fc_name = 'PITHANOTITAS_new'
  
 # Set the field names
