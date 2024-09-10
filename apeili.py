@@ -1,7 +1,7 @@
 import arcpy
  
 # Set the workspace environment
-arcpy.env.workspace = r'D:\Docs\ArcGIS\Default.gdb'
+arcpy.env.workspace = r'blah\blah\Default.gdb'
  
 # Set the name of your feature class
 fc_name = 'A018_PITHANOTITA_Identity_Id'
