@@ -1,11 +1,11 @@
 import arcpy
 
 # Set the workspace
-arcpy.env.workspace = r"\\SERVER\kartECO SHARED\Projects\Dimosio\K196 - Apografi Daswn\Working_files\Fwtoermhneia_Working\6_General\03Tmhmatikh_Paradosi\9_Dokimastikoi elegxoi\Shteia\5_01_SAP_subFot_DK.gdb"
+arcpy.env.workspace = r"blah\blah\BLAH.gdb"
 
 # Define the input feature class and shapefile
-input_fc = "subFOTOSHMEIA_DK_working"
-shapefile = r"\\SERVER\kartECO SHARED\Temporary\eleni_data\k196\tools_test_scripts\02_PERIGRAMMA_FOTOSHMEIOU\YPXSX00_FOT_ypoergo_8.shp"
+input_fc = "yourInputFeatureClass"
+shapefile = r"blah\blah\BLAH.shp"
 
 # Task 1: Explode the feature class
 exploded_fc = "Exploded_" + input_fc
