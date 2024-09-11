@@ -4,22 +4,22 @@ from pyproj import Transformer
 from lxml import etree
 
 # Define the directory containing the shapefiles
-directory = r'E:\SAP_VegMap'
+directory = r'C:\path\to\shp'
 
 # Function to create the XML content
 def create_xml_content(shapefile):
     base_name = os.path.splitext(shapefile)[0]
 
     if base_name.endswith('_VegMap'):
-        title = 'Τίτλος: Χάρτης βλάστησης υποέργου ΣΑΠ'
-        description = 'Περιγραφή: Τα ψηφιακά αυτά αρχεία περιέχουν όλα τα πολύγωνα του χάρτη βλάστησης του υποέργου. Είναι αρχείο μορφής shapefile (πολυγωνικό).'
-        ELEFlekseisklidia='Ελεύθερες Λέξεις Κλειδιά: ΣΑΠ, Απογραφή Δασών, Χάρτης Βλάστησης, Κλιματική αλλαγή'
-        anagnwristiko='SAPVegMap_Apokentromenis_Dioikisis_Krhths'
+        title = 'Τίτλος: XXXXX'
+        description = 'Περιγραφή: XXXXX.'
+        ELEFlekseisklidia='Ελεύθερες Λέξεις Κλειδιά: XXXXX'
+        anagnwristiko='XXXXX'
     elif base_name.endswith('_PosEdaf'):
-        title = 'Τίτλος: Χάρτης εδαφοκάλυψης υποέργου ΣΑΠ'
-        description = 'Περιγραφή: Τα ψηφιακά αυτά αρχεία περιέχουν όλα τα πολύγωνα του χάρτη εδαφοκάλυψης του υποέργου. Είναι αρχείο μορφής shapefile (πολυγωνικό).'
-        ELEFlekseisklidia='Ελεύθερες Λέξεις Κλειδιά: ΣΑΠ, Απογραφή Δασών, Χάρτης Εδαφοκάλυψης, Κλιματική αλλαγή'
-        anagnwristiko='SAPPosEdaf_Apokentromenis_Dioikisis_Krhths'
+        title = 'Τίτλος: XXXXX2'
+        description = 'Περιγραφή: XXXXX2.'
+        ELEFlekseisklidia='XXXXX'
+        anagnwristiko='XXXXX2'
     else:
         return None  # If the file doesn't match the criteria, skip it
 
@@ -48,17 +48,17 @@ def create_xml_content(shapefile):
         
     titleCode=etree.SubElement(root, "Τίτλος_κωδικός_Μελέτης")
     titleCode.text="Τίτλος και κωδικός μελέτης"
-    etree.SubElement(titleCode, "Τίτλος_Μελέτης").text = "Τίτλος μελέτης: Εργασίες φωτοερμηνείας και αρχικής εγκατάστασης και λήψης στοιχείων από τις δειγματοληπτικές επιφάνειες ΣΑΠ στην Αποκεντρωμένη Διοίκηση Κρήτης (Περιφέρεια Κρήτης)"
-    etree.SubElement(titleCode, "Κωδικός_Mελέτης").text = "Κωδικός μελέτης: MIS5044981 ή Υποέργο 8"
+    etree.SubElement(titleCode, "Τίτλος_Μελέτης").text = "XXXXX"
+    etree.SubElement(titleCode, "Κωδικός_Mελέτης").text = "XXXXX"
 
-    etree.SubElement(root, "Περιοχή_Μελέτης").text="Περιοχή: Αποκεντρωμένη Διοίκηση Κρήτης (Περιφέρεια Κρήτης)"
-    etree.SubElement(root, "Γλώσσα_Μεταδεδομένων").text="Γλώσσα Μεταδεδομένων: Ελληνικά"
-    etree.SubElement(root, "Γλώσσα_Πόρου").text="Γλώσσα Πόρου: Ελληνικά"
-    etree.SubElement(root, "Τύπος_Πόρου").text="Τύπος Πόρου: Αρχείο shapefile"
-    etree.SubElement(root, "Ημερομηνία_Μεταδεδομένων").text="2024/08/12"
-    etree.SubElement(root, "Θεματικές_Κατηγορίες").text="Θεματικές κατηγορίες: Περιβάλλον (Environment)"
+    etree.SubElement(root, "Περιοχή_Μελέτης").text="Περιοχή: XXXXX"
+    etree.SubElement(root, "Γλώσσα_Μεταδεδομένων").text="Γλώσσα Μεταδεδομένων: XXXXX"
+    etree.SubElement(root, "Γλώσσα_Πόρου").text="Γλώσσα Πόρου: XXXXX"
+    etree.SubElement(root, "Τύπος_Πόρου").text="Τύπος Πόρου: XXXXX"
+    etree.SubElement(root, "Ημερομηνία_Μεταδεδομένων").text="202X/XX/XX"
+    etree.SubElement(root, "Θεματικές_Κατηγορίες").text="Θεματικές κατηγορίες: XXXXX"
     etree.SubElement(root, "Ελεύθερες_Λέξεις_Κλειδιά").text=ELEFlekseisklidia
-    etree.SubElement(root, "Λέξεις_Κλειδιά").text='Λέξεις Κλειδιά: GEMET - INSPIRE themes: Κάλυψη γης (Land cover) GEMET - INSPIRE themes, version 1.0, 2008-06-01'
+    etree.SubElement(root, "Λέξεις_Κλειδιά").text='Λέξεις Κλειδιά: XXXXX'
     
     
     coordinate_element=etree.SubElement(root, "Περίγραμμα_Γεωγραφικών_Συντεταγμένων")
@@ -79,22 +79,22 @@ def create_xml_content(shapefile):
     etree.SubElement(xwrAnalysis_element, "Οριζοντιογραφική_Ακρίβεια").text = "Οριζοντιογραφική Ακρίβεια: 4 μέτρα"
     etree.SubElement(xwrAnalysis_element, "Μονάδα_Μέτρησης").text = "Μονάδα μέτρησης: Μέτρα"
 
-    etree.SubElement(root, "Ημερομηνία_Εναρξης").text="Ημερομηνία έναρξης εργασιών: 2022/07/18 (Υπογραφή σύμβασης)"
+    etree.SubElement(root, "Ημερομηνία_Εναρξης").text="Ημερομηνία έναρξης εργασιών: 2022/07/18"
     etree.SubElement(root, "Ημερομηνία_Περάτωσης").text="Ημερομηνία περάτωσης εργασιών: 2024/08/27"
     etree.SubElement(root, "Αναγνωριστικό").text=anagnwristiko
     etree.SubElement(root, "Περιορισμοί").text="Περιορισμοί: Χωρίς περιορισμούς"
-    etree.SubElement(root, "Προδιαγραφή").text="Προδιαγραφή: Το Παράρτημα 1 της διακήρυξης ανοιχτής διαδικασίας, μέσω ΕΣΗΔΗΣ για την επιλογή αναδόχου για την παροχή υπηρεσιών: «Εργασίες φωτοερμηνείας και αρχικής εγκατάστασης και λήψης στοιχείων από τις δειγματοληπτικές επιφάνειες ΣΑΠ στην Αποκεντρωμένη Διοίκηση Κρήτης (Περιφέρεια Κρήτης)»"
+    etree.SubElement(root, "Προδιαγραφή").text="Προδιαγραφή: XXXXX»"
 
     ArmodioMeros = etree.SubElement(root, "Αρμόδιο_Μέρος")
     ArmodioMeros.text = "Αρμόδιο Μέρος:"
-    etree.SubElement(ArmodioMeros, 'Δημιουργός_Πόρου').text="Δημιουργός του πόρου:  Ένωση των οικονομικών φορέων «ΚΑΡΤΕΡΗΣ ΑΠΟΣΤΟΛΟΣ – ΚΑΡΤΕΡΗΣ ΜΑΡΙΝΟΣ Ο.Ε. και ΟΜΙΚΡΟΝ ΣΥΜΒΟΥΛΟΙ ΠΕΡΙΒΑΛΛΟΝΤΟΣ ΑΝΩΝΥΜΗ ΕΤΑΙΡΕΙΑ»"
+    etree.SubElement(ArmodioMeros, 'Δημιουργός_Πόρου').text="Δημιουργός του πόρου: XXXXX»"
     stoixeiaEpikoinwnias=etree.SubElement(ArmodioMeros,'Στοιχεία_Επικοινωνίας')
     stoixeiaEpikoinwnias.text="Στοιχεία επικοινωνίας αναδόχου: "
-    etree.SubElement(stoixeiaEpikoinwnias, 'Διεύθυνση').text="Αγίας Αναστασίας και Λαέρτου, TK 57001, Πυλαία Θεσσαλονίκης"
-    etree.SubElement(stoixeiaEpikoinwnias, 'Τηλέφωνο').text="Τηλέφωνο: +30 2310365441"
-    etree.SubElement(stoixeiaEpikoinwnias, 'Φαξ').text="+30 2310365442"
-    etree.SubElement(ArmodioMeros, 'Όνομα').text="Όνομα εκπροσώπου του αναδόχου: Καρτέρης Απόστολος"
-    etree.SubElement(ArmodioMeros, 'Αρμόδιος_Διαχείρισης').text="Αρμόδιος για την διαχείριση, τη συντήρηση και τη διανομή του πόρου: ΥΠΕΝ"
+    etree.SubElement(stoixeiaEpikoinwnias, 'Διεύθυνση').text="XXXXX"
+    etree.SubElement(stoixeiaEpikoinwnias, 'Τηλέφωνο').text="Τηλέφωνο: XXXXX"
+    etree.SubElement(stoixeiaEpikoinwnias, 'Φαξ').text="XXXXX"
+    etree.SubElement(ArmodioMeros, 'Όνομα').text="Όνομα εκπροσώπου του αναδόχου: XXXXX"
+    etree.SubElement(ArmodioMeros, 'Αρμόδιος_Διαχείρισης').text="XXXXX"
     
     
     # Convert XML structure to string
