@@ -2,11 +2,10 @@ import geopandas as gpd
 import pandas as pd
 
 # Load the two feature classes as GeoDataFrames
-gdf1 = gpd.read_file(r"\\SERVER\kartECO SHARED\Projects\Dimosio\K196 - Apografi Daswn\Working_files\Fwtoermhneia_Working\6_General\03Tmhmatikh_Paradosi\10_Telikes_vaseis\Malevisiou\Malevisiou_veg.gdb" , layer='Malevisiou_veg') #vlastisis H edafokalypsis
+gdf1 = gpd.read_file(r"blah\blah\BLAH.gdb" , layer='Malevisiou_veg') #vlastisis H edafokalypsis
 
-gdf2 = gpd.read_file(r"\\SERVER\kartECO SHARED\Projects\Dimosio\K196 - Apografi Daswn\Working_files\Fwtoermhneia_Working\6_General\03Tmhmatikh_Paradosi\10_Telikes_vaseis\Malevisiou\Old\fotoshm_merged.shp") #fotosimeia
+gdf2 = gpd.read_file(r"blah\blah\BLAH.shp") #fotosimeia
 
-#gdf2_path = r"\\192.168.1.5\kartECO SHARED\Temporary\eleni_data\k196\01_SAP_subFot_SP_1.gdb"
 
 # Add a unique identifier field to gdf2
 gdf2['FID_gdf2'] = range(len(gdf2))
@@ -36,7 +35,7 @@ for idx, row in gdf2.iterrows():
 unmatched_gdf = gdf2[gdf2['FID_gdf2'].isin(spatially_matched_ids)]
 
 # Specify the output shapefile path
-output_shapefile = r'\\SERVER\kartECO SHARED\Projects\Dimosio\K196 - Apografi Daswn\Working_files\Fwtoermhneia_Working\6_General\03Tmhmatikh_Paradosi\10_Telikes_vaseis\Malevisiou\unmatched\unmatched_veg.shp'
+output_shapefile = r'blah\blah\BLAH.shp'
 
 # Save the unmatched GeoDataFrame to a shapefile
 unmatched_gdf.to_file(output_shapefile)
