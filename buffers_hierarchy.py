@@ -1,7 +1,7 @@
 import arcpy
 
 # Set the workspace
-arcpy.env.workspace = r"\\192.168.1.5\kartECO SHARED\Projects\Dimosio\K207 - TAIPED\02_Antipirika_sxedia_SP02\Working_files\Data_help_photos\Data\4. Paragomena Stoixeia\xartis_apeiloumenwn_aksiwn\SP02_Veg_Map_new.gdb"
+arcpy.env.workspace = r"blah\blah\BLAH.gdb"
 
 # Input shapefile
 merged_buffers = "APEILOUMENES_AKSIES_new"
