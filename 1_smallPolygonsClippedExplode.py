@@ -2,11 +2,11 @@ import arcpy
 import os
 
 # Set workspace
-arcpy.env.workspace = r"\\SERVER\kartECO SHARED\Projects\Dimosio\K196 - Apografi Daswn\Working_files\Fwtoermhneia_Working\6_General\03Tmhmatikh_Paradosi\10_Telikes_vaseis\Malevisiou\Malevisiou_edaf.gdb"
+arcpy.env.workspace = r"blah\blah\BLAH.gdb"
 cws = arcpy.env.workspace
 # Input shapefile and feature class
-dasikos_shp = r"\\192.168.1.5\kartECO SHARED\Projects\Dimosio\K196 - Apografi Daswn\Working_files\Plans_Annexes\3h_Tmhmatikh\5_Dasikos\DASIKOS_Krhth_Dissolve_tel.shp"
-vegMap_feature_class = r"\\SERVER\kartECO SHARED\Projects\Dimosio\K196 - Apografi Daswn\Working_files\Fwtoermhneia_Working\6_General\03Tmhmatikh_Paradosi\10_Telikes_vaseis\Malevisiou\Old\maleviziou_edaf.shp"
+dasikos_shp = r"blah\blah\BLAH.shp"
+vegMap_feature_class = r"blah\blah\BLAH.shp"
 
 # Output feature layers
 dasikos_clipped = "dasikos_clipped"
