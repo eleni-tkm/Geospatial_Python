@@ -2,7 +2,7 @@ import geopandas as gpd
 #HOW TO COMPARE THE FIELDS FOR TWO DIFFERENT SHAPEFILES USING GEOPANDAS (JUST ONE WAY... THYERE ARE TOO MANY THOUGHHHH :))
 # Define the file paths
 file_path1 = r"blah\blah\firstShapefile.shp"
-file_path2 = r""blah\blah\secondShapefile.shp"
+file_path2 = r"blah\blah\secondShapefile.shp"
 
 # Read the shapefiles with geopandas
 gdf1 = gpd.read_file(file_path1)
