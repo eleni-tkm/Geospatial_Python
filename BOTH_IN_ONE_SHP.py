@@ -16,7 +16,7 @@ def get_extra_field(sheet_name):
         return None
 
 # Read both sheets 'STEIRA' and 'LATOMIKOS' from the '2020.xlsx' file into pandas DataFrames
-xls_file = pd.ExcelFile(r"\\192.168.1.5\kartECO SHARED\Temporary\eleni_data\codes_latomeia\2020\2020.xlsx")
+xls_file = pd.ExcelFile(r"blah\blah\2020\2020.xlsx")
 df_steira = pd.read_excel(xls_file, sheet_name='STEIRA')
 df_latomikos = pd.read_excel(xls_file, sheet_name='LATOMIKOS')
 
