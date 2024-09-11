@@ -4,11 +4,11 @@ from fiona import drivers
 import fiona
 
 # Load the first shapefile
-shp1_path = r'E:\taiped\rasterClass_polygon_only.shp' #this is stable
+shp1_path = r'blah\blah\blah.shp' #this is stable
 gdf1 = gpd.read_file(shp1_path)
 
 # Load the second shapefile
-shp2_path = r'Z:\Projects\Dimosio\K207 - TAIPED\02_Antipirika_sxedia_SP02\Working_files\Data_Help_Photos\Data\4. Paragomena Stoixeia\temp_files\SP02_DIKTYO_DEDHE_Buffer.shp'
+shp2_path = r'blah\blah\blah2.shp'
 gdf2 = gpd.read_file(shp2_path)
 
 # Create a spatial index for faster spatial queries
