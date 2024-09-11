@@ -2,7 +2,7 @@ import arcpy
 
 
 # Set the workspace environment
-arcpy.env.workspace = r'\\192.168.1.5\kartECO SHARED\Projects\Dimosio\K207 - TAIPED\02_Antipirika_sxedia_SP02\Working_files\Fwtoermhneia_working\SP02_Veg_Map.gdb'
+arcpy.env.workspace = r'blah\blah\BLAH.gdb'
 
 # Set the feature class name
 fc_name = 'SP02_Veg_Map_final'
