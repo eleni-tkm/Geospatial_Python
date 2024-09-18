@@ -2,7 +2,7 @@ import arcpy
 import os
 
 
-# Define input shapefiles
+# let the user define the inputs
 shapefileAa = arcpy.GetParameterAsText(0)
 shapefileBb = arcpy.GetParameterAsText(1)
 
@@ -22,14 +22,16 @@ time.sleep(2)
 
 # Clear workspace cache to release locks
 arcpy.ClearWorkspaceCache_management()
-
-            
+#Rename fields just to be sure that you won't have any problems in the spatial join
+#this is becasue in my case the shapefiles that I want to compare have the same names for the fields
+#it is a painfull process though at least for the version of arcmap that I am using...
+#renaming......          
 #CAT_EDAF
 arcpy.AddField_management(shapefileA, 'CAT_EDAFb', 'TEXT', field_length=2)
 arcpy.CalculateField_management(shapefileA, 'CAT_EDAFb', '!CAT_EDAF!', 'PYTHON')
 arcpy.DeleteField_management(shapefileA, 'CAT_EDAF')
 
-# Reorder CAT_ID
+#CAT_ID
 arcpy.AddField_management(shapefileA, 'CAT_IDb', 'TEXT', field_length=8)
 arcpy.CalculateField_management(shapefileA, 'CAT_IDb', '!CAT_ID!', 'PYTHON')
 arcpy.DeleteField_management(shapefileA, 'CAT_ID')
@@ -40,71 +42,67 @@ arcpy.CalculateField_management(shapefileA, 'ORIZ_DOMIb', '!ORIZ_DOMI!', 'PYTHON
 arcpy.DeleteField_management(shapefileA, 'ORIZ_DOMI')
 
 
-# Reorder EIDOS1
+#EIDOS1
 arcpy.AddField_management(shapefileA, 'EIDOS1b', 'TEXT', field_length=6)
 arcpy.CalculateField_management(shapefileA, 'EIDOS1b', '!EIDOS1!', 'PYTHON')
 arcpy.DeleteField_management(shapefileA, 'EIDOS1')
 
-# Reorder POSOSTO1
+#POSOSTO1
 arcpy.AddField_management(shapefileA, 'POSOSTO1b', 'DOUBLE')
 arcpy.CalculateField_management(shapefileA, 'POSOSTO1b', '!POSOSTO1!', 'PYTHON')
 arcpy.DeleteField_management(shapefileA, 'POSOSTO1')
 
-# Reorder EIDOS2
+#EIDOS2
 arcpy.AddField_management(shapefileA, 'EIDOS2b', 'TEXT', field_length=6)
 arcpy.CalculateField_management(shapefileA, 'EIDOS2b', '!EIDOS2!', 'PYTHON')
 arcpy.DeleteField_management(shapefileA, 'EIDOS2')
 
-# Reorder POSOSTO2
+#POSOSTO2
 arcpy.AddField_management(shapefileA, 'POSOSTO2b', 'DOUBLE')
 arcpy.CalculateField_management(shapefileA, 'POSOSTO2b', '!POSOSTO2!', 'PYTHON')
 arcpy.DeleteField_management(shapefileA, 'POSOSTO2')
 
 
-# Reorder EIDOS3
+#EIDOS3
 arcpy.AddField_management(shapefileA, 'EIDOS3b', 'TEXT', field_length=6)
 arcpy.CalculateField_management(shapefileA, 'EIDOS3b', '!EIDOS3!', 'PYTHON')
 arcpy.DeleteField_management(shapefileA, 'EIDOS3')
 
-# Reorder POSOSTO3
+#POSOSTO3
 arcpy.AddField_management(shapefileA, 'POSOSTO3b', 'DOUBLE')
 arcpy.CalculateField_management(shapefileA, 'POSOSTO3b', '!POSOSTO3!', 'PYTHON')
 arcpy.DeleteField_management(shapefileA, 'POSOSTO3')
 
 
-# Reorder CAT_O2
+#CAT_O2
 arcpy.AddField_management(shapefileA, 'CAT_O2b', 'TEXT', field_length=4)
 arcpy.CalculateField_management(shapefileA, 'CAT_O2b', '!CAT_O2!', 'PYTHON')
 arcpy.DeleteField_management(shapefileA, 'CAT_O2')
 
-# Reorder TYPOSDAS
+#TYPOSDAS
 arcpy.AddField_management(shapefileA, 'TYPOSDASb', 'TEXT', field_length=8)
 arcpy.CalculateField_management(shapefileA, 'TYPOSDASb', '!TYPOSDAS!', 'PYTHON')
 arcpy.DeleteField_management(shapefileA, 'TYPOSDAS')
 
 
-# Reorder OTHEREIDOS
+#OTHEREIDOS
 arcpy.AddField_management(shapefileA, 'OTHEREIDSb', 'TEXT', field_length=250)
 arcpy.CalculateField_management(shapefileA, 'OTHEREIDSb', '!OTHEREIDOS!', 'PYTHON')
 arcpy.DeleteField_management(shapefileA, 'OTHEREIDOS')
 
 
-# Reorder MESOYPSOS
-
+#MESOYPSOS
 arcpy.DeleteField_management(shapefileA, 'MESOYPSOS')
 arcpy.DeleteField_management(shapefileB, 'MESOYPSOS')
 
 
-
-
-# Reorder TDASOSEIS
+#TDASOSEIS
 arcpy.AddField_management(shapefileA, 'TDASOSEISb', 'TEXT', field_length=20)
 arcpy.CalculateField_management(shapefileA, 'TDASOSEISb', '!TDASOSEIS!', 'PYTHON')
 arcpy.DeleteField_management(shapefileA, 'TDASOSEIS')
 
 
-
-# Reorder MESOYPSOS_
+#MESOYPSOS_
 arcpy.AddField_management(shapefileA, 'MESOYPSOSb', 'DOUBLE')
 arcpy.CalculateField_management(shapefileA, 'MESOYPSOSb', '!MESOYPSOS_!', 'PYTHON')
 arcpy.DeleteField_management(shapefileA, 'MESOYPSOS_')
@@ -148,10 +146,11 @@ missmatched_MESOYPSOS=os.path.join(output_folder,"missmatched_MESOYPSOS.shp")
 
 arcpy.SpatialJoin_analysis(shpB_bound, shpA_bound, shp_A_B_intersJoin, join_operation="JOIN_ONE_TO_MANY", match_option="SHARE_A_LINE_SEGMENT_WITH")
 
-# Define the query to select features where JOIN_FID = -1
+# Define the query to select features where JOIN_FID = -1 - this means that there is no matching polygon for the target polygon that actually shares a line segmant with the inputs. That is why i want to ignore -by deleting-
+#these values
 query = '"JOIN_FID" = -1'
 
-# Start an edit session to enable row deletion
+# this is how you start an edit session to enable row deletion
 with arcpy.da.UpdateCursor(shp_A_B_intersJoin, ["JOIN_FID"], where_clause=query) as cursor:
     for row in cursor:
         cursor.deleteRow()  # Delete the row if the condition is met
