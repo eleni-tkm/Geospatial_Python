@@ -63,7 +63,7 @@ field_names_initial = [field.name for field in arcpy.ListFields(input_polygons)]
 
 
 # Explode all features of the final output
-final_output = 'Notio_phlio_contours.shp'
+final_output = 'myFinalOutput.shp'
 arcpy.MultipartToSinglepart_management(identity_output, final_output)
 #fields_to_keep2 = [field for field in arcpy.ListFields(final_output) if field.name in field_names_initial]
 arcpy.DeleteField_management(final_output, [field.name for field in arcpy.ListFields(final_output) if field.name not in field_names_initial])
@@ -71,4 +71,4 @@ arcpy.DeleteField_management(final_output, [field.name for field in arcpy.ListFi
 
 
 arcpy.Delete_management(identity_output)
-print("Splitting operation completed.")
+
