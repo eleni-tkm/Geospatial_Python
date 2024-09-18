@@ -3,8 +3,8 @@ import arcpy
 # Set the workspace
 arcpy.env.workspace = r"blah\blah\BLAH.gdb"
 
-# Input shapefile
-merged_buffers = "APEILOUMENES_AKSIES_new"
+# Input shapefile/feature class
+merged_buffers = "theNameofYourFeatureClass"
 
 # Output shapefiles
 intersections_output = "merged_Buffers_intersections"
