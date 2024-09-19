@@ -2,6 +2,12 @@ import pandas as pd
 from shapely.geometry import Polygon
 import geopandas as gpd
 
+#small Description:
+#How to read points (x,y) data from excel spreadsheets
+#Create a polygon from each set of x,y pairs
+#save outputs to shapefiles
+#for my case there is an empty row between the end and the start of each set of X,Y values that build a polygon
+
 # Function to create a polygon from a list of coordinates
 def create_polygon(coords):
     return Polygon(coords)
@@ -56,7 +62,7 @@ def process_sheet(df, sheet_name):
 polygons_steira, sheet_names_steira = process_sheet(df_steira, 'STEIRA')
 polygons_latomikos, sheet_names_latomikos = process_sheet(df_latomikos, 'LATOMIKOS')
 
-# Create separate GeoDataFrames for 'STEIRA' and 'LATOMIKOS'
+# Create separate GeoDataFrames for 'STEIRA' and 'LATOMIKOS' which are my sheet names in the excel file
 gdf_steira = gpd.GeoDataFrame({'geometry': polygons_steira, 'sheet_name': sheet_names_steira})
 gdf_latomikos = gpd.GeoDataFrame({'geometry': polygons_latomikos, 'sheet_name': sheet_names_latomikos})
 
