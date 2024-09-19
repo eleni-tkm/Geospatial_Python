@@ -6,7 +6,7 @@ arcpy.env.workspace = r'blah\blah\blah.shp'
 # Set feature class name
 feature_class = 'theNameOfFeatureClassInGDB'
 
-# Task 1: Take the feature class 'subFOTOSHMEIA_SP_working'
+
 # Task 2: Keep a list called 'initial_fields' with the names of the fields of the feature class 'subFOTOSHMEIA_SP_working'
 initial_fields = [field.name for field in arcpy.ListFields(feature_class)]
 
